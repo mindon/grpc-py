@@ -1,0 +1,21 @@
+syntax = "proto3";
+package proto;
+option go_package = "quantum.lab/proto";
+
+service Task {
+    rpc Run(TaskRequest) returns (TaskReply) {}
+}
+
+message TaskRequest {
+    string name = 1;
+    string input = 2;
+    string path = 3;
+    string func = 4;
+}
+
+message TaskReply {
+    string output = 1;
+    string error = 2;
+    int64 start_at = 3;
+    int64 stop_at = 4;
+}
